@@ -50,12 +50,10 @@
   display:flex;
   margin-left: 0.6rem;
   width: 6.7rem;
-  background-color: aqua!important;
   height: 6.7rem;
   background-size: cover;
   border-radius: 14px;
   transition: 0.2s;
-  background-color: transparent;
   border: none;
   outline: 0px auto -webkit-focus-ring-color;
   outline-offset: 0px;
