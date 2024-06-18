@@ -6,7 +6,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
 import styled from "styled-components";
 
 export default function Main() {
@@ -33,186 +32,283 @@ export default function Main() {
     setTime(time);
   }, 1000);
 
-
   const start = () => {
-      // audio.play()
-    }
+    // audio.play()
+  };
   const enter = () => {
-      // audio2.play()
-    }  
+    // audio2.play()
+  };
 
   const settings = {
     speed: 500,
-    dots:false,
+    dots: false,
     focusOnSelect: true,
     infinite: false,
     slidesToShow: 3,
     arrows: false,
     variableWidth: true,
     responsive: [
-        {
-          breakpoint: 800,
-          settings: {
-            slidesToShow: 4,
-            slidesToScroll: 4,
-            initialSlide: 2
-          }
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          initialSlide: 2,
         },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    };
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
+  const Button = styled.button<{ $url?: string }>`
+    display: flex;
+    margin-left: 0.6rem;
+    width: 6.7rem;
+    height: 6.7rem;
+    background-size: cover;
+    background-image: url("${(props) =>
+      (process.env.PUBLIC_URL || "") + props.$url}");
+    border-radius: 14px;
+    background-color: transparent;
+    transition: 0.2s;
+    border: none;
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
 
-  const Button = styled.button<{ $url?: string; }>`
+    p {
+      visibility: hidden;
+    }
+    img {
+      border-radius: 10px;
+      height: 100%;
+      width: 100%;
+    }
+    :hover {
+      margin-top: 0;
+      opacity: 1;
+      width: 10rem;
+      height: 10rem;
+      border-color: white;
+      border-style: solid;
+    }
 
-  display:flex;
-  margin-left: 0.6rem;
-  width: 6.7rem;
-  height: 6.7rem;
-  background-size: cover;
-  background-image: url("${props => (process.env.PUBLIC_URL || "")+props.$url }");
-  border-radius: 14px;
-  background-color:transparent;
-  transition: 0.2s;
-  border: none;
-  outline: 0px auto -webkit-focus-ring-color;
-  outline-offset: 0px;
+    :hover p {
+      position: relative;
+      top: 7rem;
+      left: 10.5rem;
+      font-size: 2rem;
+      visibility: visible;
+      color: honeydew;
+      transition: 0.3s;
+      white-space: nowrap;
+    }
+  `;
 
-p{
-  visibility: hidden;
-  
-}
-img{
-  border-radius: 10px;
-  height: 100%;
-  width: 100%;
-}
-:hover {
-  margin-top: 0;
-  opacity: 1;
-  width: 10rem;
-  height: 10rem;
-  border-color: white;
-  border-style: solid;
-  
-}
+  const Main = styled.div<{ $url?: string }>`
+    max-width: 100vw;
+    overflow-x: hidden;
+    background-size: cover;
+    background-image: url("${(props) =>
+      (process.env.PUBLIC_URL || "") + props.$url}");
+    border: none;
+    height: 100vh;
+    transition: background-image 0.5s;
+    will-change: background-image;
+  `;
 
-:hover p{
-  position: relative;
-  top: 7rem;
-  left: 10.5rem;
-  font-size: 2rem;
-  visibility: visible;
-  color: honeydew;
-  transition: 0.3s;
-  white-space: nowrap;
-}
-`;
-
-const Main = styled.div<{ $url?: string; }>`
-  max-width: 100vw;
-  overflow-x: hidden;
-  background-size: cover;
-  background-image: url("${props => (process.env.PUBLIC_URL || "")+props.$url }");
-  border:none;
-  height:100vh;
-  transition: background-image 0.5s;
-  will-change: background-image;
-`;
-
-const IconButton = styled.div<{ $url?: string; }>`
-  width:33px;
-  height:33px;
-  cursor:pointer;
-  background-size: cover;
-  background-image: url("${props => (process.env.PUBLIC_URL || "")+props.$url }");
-  border-radius:50px;
-`;
+  const IconButton = styled.div<{ $url?: string }>`
+    width: 33px;
+    height: 33px;
+    cursor: pointer;
+    background-size: cover;
+    background-image: url("${(props) =>
+      (process.env.PUBLIC_URL || "") + props.$url}");
+    border-radius: 50px;
+  `;
 
   return (
-    <Main $url={hover==""?"/1068673.gif":hover} >
-      <div className={styles.filter}>
-      </div>
-      <div style={{height:"auto"}}>
-      <div className={styles.header}>
-        <div className={styles.headerCategory}>
-          <div className={selected!=="Games"? styles.unselected:styles.selected} onClick={()=>{setSelected("Games")}}>Games</div>
-          <div className={selected!=="Media"? styles.unselected:styles.selected} onClick={()=>{setSelected("Media")}}>Media</div>
-        </div>
-
-        <div className={styles.headerSettings}>
-          <div className={styles.options}>
-            <IconButton $url={"search.png"}></IconButton>
-            <IconButton $url={"settings.png"}></IconButton>
-            <IconButton $url={"https://github.com/kirito2911.png"}></IconButton>
-          </div>
-          <div className={styles.hour}>{time}</div>
-        </div>
-      </div>
-
-      <div className={styles.list}>
-      <Slider  className={styles.slider} {...settings} >
-      <a href="https://moveitt-kirito2911.vercel.app/" >
-            <div className={styles.divop}>
-            <Button className={styles.option} onMouseEnter={()=>{setHover("/moveback.png")}} onClick={enter} $url={"/moveit.png"} autoFocus>
-                <p>Move It</p> 
-            </Button>
+    <Main $url={hover == "" ? "/1068673.gif" : hover}>
+      <div className={styles.filter}></div>
+      <div style={{ height: "auto" }}>
+        <div className={styles.header}>
+          <link
+            rel="preload"
+            href={(process.env.PUBLIC_URL || "") + "//1068673.gif"}
+            as="image"
+          ></link>
+          <link
+            rel="preload"
+            href={(process.env.PUBLIC_URL || "") + "/moveback.png"}
+            as="image"
+          ></link>
+          <div className={styles.headerCategory}>
+            <div
+              className={
+                selected !== "Games" ? styles.unselected : styles.selected
+              }
+              onClick={() => {
+                setSelected("Games");
+              }}
+            >
+              Games
             </div>
+            <div
+              className={
+                selected !== "Media" ? styles.unselected : styles.selected
+              }
+              onClick={() => {
+                setSelected("Media");
+              }}
+            >
+              Media
+            </div>
+          </div>
+
+          <div className={styles.headerSettings}>
+            <div className={styles.options}>
+              <IconButton $url={"search.png"}></IconButton>
+              <IconButton $url={"settings.png"}></IconButton>
+              <IconButton
+                $url={"https://github.com/kirito2911.png"}
+              ></IconButton>
+            </div>
+            <div className={styles.hour}>{time}</div>
+          </div>
+        </div>
+
+        <div className={styles.list}>
+          <Slider className={styles.slider} {...settings}>
+            <a href="https://moveitt-kirito2911.vercel.app/">
+              <div className={styles.divop}>
+                <Button
+                  className={styles.option}
+                  onMouseLeave={() => {
+                    setHover("");
+                  }}
+                  onMouseEnter={() => {
+                    setHover("/moveback.png");
+                  }}
+                  onClick={enter}
+                  $url={"/moveit.png"}
+                  autoFocus
+                >
+                  <p>Move It</p>
+                </Button>
+              </div>
             </a>
             <a href="https://kirito2911.github.io/celol/">
-            <div className={styles.divop}>
-            <Button className={styles.option} onMouseEnter={()=>{setHover("/celolback.png")}} onClick={enter} $url={"/celol.png"}>
-                <p>Celol</p> 
-            </Button>
-            </div>
+              <div className={styles.divop}>
+                <Button
+                  className={styles.option}
+                  onMouseLeave={() => {
+                    setHover("");
+                  }}
+                  onMouseEnter={() => {
+                    setHover("/celolback.png");
+                  }}
+                  onClick={enter}
+                  $url={"/celol.png"}
+                >
+                  <p>Celol</p>
+                </Button>
+              </div>
             </a>
             <a href="https://kiriflix.vercel.app/">
-            <div className={styles.divop}>
-            <Button className={styles.option} onMouseEnter={()=>{setHover("/kiriflixback.png")}} onClick={enter} $url={"/kiriflix.png"}>
-                <p>Kiriflix</p> 
-            </Button>
-            </div >
+              <div className={styles.divop}>
+                <Button
+                  className={styles.option}
+                  onMouseLeave={() => {
+                    setHover("");
+                  }}
+                  onMouseEnter={() => {
+                    setHover("/kiriflixback.png");
+                  }}
+                  onClick={enter}
+                  $url={"/kiriflix.png"}
+                >
+                  <p>Kiriflix</p>
+                </Button>
+              </div>
             </a>
             <a href="https://podcastr-flame.vercel.app/">
-            <div className={styles.divop}>
-            <Button className={styles.option} onMouseEnter={()=>{setHover("/podback.png")}} onClick={enter} $url={"/podcastr.png"}>
-                <p>Podcastr</p> 
-            </Button>
-            </div>
+              <div className={styles.divop}>
+                <Button
+                  className={styles.option}
+                  onMouseLeave={() => {
+                    setHover("");
+                  }}
+                  onMouseEnter={() => {
+                    setHover("/podback.png");
+                  }}
+                  onClick={enter}
+                  $url={"/podcastr.png"}
+                >
+                  <p>Podcastr</p>
+                </Button>
+              </div>
             </a>
             <a href="https://letmeask2911.web.app/">
-            <div className={styles.divop}>
-            <Button className={styles.option} onMouseEnter={()=>{setHover("/letback.png")}} onClick={enter} $url={"/let.png"}>
-                <p>Letmeask</p> 
-            </Button>
-            </div>
+              <div className={styles.divop}>
+                <Button
+                  className={styles.option}
+                  onMouseLeave={() => {
+                    setHover("");
+                  }}
+                  onMouseEnter={() => {
+                    setHover("/letback.png");
+                  }}
+                  onClick={enter}
+                  $url={"/let.png"}
+                >
+                  <p>Letmeask</p>
+                </Button>
+              </div>
             </a>
             <a href="https://drive.google.com/file/d/1Vul-zjrU8AbQLjMSdnpCJg_x5YcA5IvD/view?usp=sharing">
-            <div className={styles.divop}>
-            <Button className={styles.option} onMouseEnter={()=>{setHover("/cvback.png")}} onClick={enter} $url={"/cv.png"}>
-                <p>Currículo</p> 
-            </Button>
-            </div>
+              <div className={styles.divop}>
+                <Button
+                  className={styles.option}
+                  onMouseLeave={() => {
+                    setHover("");
+                  }}
+                  onMouseEnter={() => {
+                    setHover("/cvback.png");
+                  }}
+                  onClick={enter}
+                  $url={"/cv.png"}
+                >
+                  <p>Currículo</p>
+                </Button>
+              </div>
             </a>
             <div className={styles.divop}>
-            <Button className={styles.option} onMouseEnter={()=>{setHover("/wallff7.jpg")}} onClick={enter} onMouseLeave={()=>{setHover("")}} $url={"/final.png"} >
-                <p>Final Fantasy 7 Remake</p> 
-            </Button>
+              <Button
+                className={styles.option}
+                onMouseEnter={() => {
+                  setHover("/wallff7.jpg");
+                }}
+                onClick={enter}
+                onMouseLeave={() => {
+                  setHover("");
+                }}
+                $url={"/final.png"}
+              >
+                <p>Final Fantasy 7 Remake</p>
+              </Button>
             </div>
             {/* <div className={styles.divop}>
             <Button className={styles.option} onMouseEnter={start} onClick={enter} $url={"/gow.png"}>
                 <p>God of War</p> 
             </Button>
             </div> */}
-            </Slider>
-      </div>
-      
+          </Slider>
+        </div>
       </div>
     </Main>
   );
