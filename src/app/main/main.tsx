@@ -122,12 +122,23 @@ const Main = styled.div<{ $url?: string; }>`
   background-image: url("${props => (process.env.PUBLIC_URL || "")+props.$url }");
   border:none;
   height:100vh;
-    transition: background-image 0.2s;
-    will-change: background-image;
+  transition: background-image 0.5s;
+  will-change: background-image;
+`;
+
+const IconButton = styled.div<{ $url?: string; }>`
+  width:33px;
+  height:33px;
+  cursor:pointer;
+  background-size: cover;
+  background-image: url("${props => (process.env.PUBLIC_URL || "")+props.$url }");
+  border-radius:50px;
 `;
 
   return (
-    <Main $url={hover==""?"/back.png":hover} >
+    <Main $url={hover==""?"/1068673.gif":hover} >
+      <div className={styles.filter}>
+      </div>
       <div style={{height:"auto"}}>
       <div className={styles.header}>
         <div className={styles.headerCategory}>
@@ -137,9 +148,9 @@ const Main = styled.div<{ $url?: string; }>`
 
         <div className={styles.headerSettings}>
           <div className={styles.options}>
-            <div>Search</div>
-            <div>Config</div>
-            <div>Prof</div>
+            <IconButton $url={"search.png"}></IconButton>
+            <IconButton $url={"settings.png"}></IconButton>
+            <IconButton $url={"https://github.com/kirito2911.png"}></IconButton>
           </div>
           <div className={styles.hour}>{time}</div>
         </div>
@@ -149,49 +160,42 @@ const Main = styled.div<{ $url?: string; }>`
       <Slider  className={styles.slider} {...settings} >
       <a href="https://moveitt-kirito2911.vercel.app/" >
             <div className={styles.divop}>
-            <Button className={styles.option} onMouseEnter={start} onClick={enter} $url={"/moveit.png"} autoFocus>
+            <Button className={styles.option} onMouseEnter={()=>{setHover("/moveback.png")}} onClick={enter} $url={"/moveit.png"} autoFocus>
                 <p>Move It</p> 
             </Button>
             </div>
             </a>
             <a href="https://kirito2911.github.io/celol/">
             <div className={styles.divop}>
-            <Button className={styles.option} onMouseEnter={start} onClick={enter} $url={"/celol.png"}>
+            <Button className={styles.option} onMouseEnter={()=>{setHover("/celolback.png")}} onClick={enter} $url={"/celol.png"}>
                 <p>Celol</p> 
             </Button>
             </div>
             </a>
             <a href="https://kiriflix.vercel.app/">
             <div className={styles.divop}>
-            <Button className={styles.option} onMouseEnter={start} onClick={enter} $url={"/kiriflix.png"}>
+            <Button className={styles.option} onMouseEnter={()=>{setHover("/kiriflixback.png")}} onClick={enter} $url={"/kiriflix.png"}>
                 <p>Kiriflix</p> 
             </Button>
             </div >
             </a>
-            <a href="https://kirito2911.github.io/pokedex/">
-            <div className={styles.divop}>
-            <Button className={styles.option} onMouseEnter={start} onClick={enter} $url={"/pokedex.png"}>
-                <p>Pokédex</p> 
-            </Button>
-            </div>
-            </a>
             <a href="https://podcastr-flame.vercel.app/">
             <div className={styles.divop}>
-            <Button className={styles.option} onMouseEnter={start} onClick={enter} $url={"/podcastr.png"}>
+            <Button className={styles.option} onMouseEnter={()=>{setHover("/podback.png")}} onClick={enter} $url={"/podcastr.png"}>
                 <p>Podcastr</p> 
             </Button>
             </div>
             </a>
             <a href="https://letmeask2911.web.app/">
             <div className={styles.divop}>
-            <Button className={styles.option} onMouseEnter={start} onClick={enter} $url={"/let.png"}>
+            <Button className={styles.option} onMouseEnter={()=>{setHover("/letback.png")}} onClick={enter} $url={"/let.png"}>
                 <p>Letmeask</p> 
             </Button>
             </div>
             </a>
             <a href="https://drive.google.com/file/d/1Vul-zjrU8AbQLjMSdnpCJg_x5YcA5IvD/view?usp=sharing">
             <div className={styles.divop}>
-            <Button className={styles.option} onMouseEnter={start} onClick={enter} $url={"/cv.png"}>
+            <Button className={styles.option} onMouseEnter={()=>{setHover("/cvback.png")}} onClick={enter} $url={"/cv.png"}>
                 <p>Currículo</p> 
             </Button>
             </div>
@@ -201,13 +205,14 @@ const Main = styled.div<{ $url?: string; }>`
                 <p>Final Fantasy 7 Remake</p> 
             </Button>
             </div>
-            <div className={styles.divop}>
+            {/* <div className={styles.divop}>
             <Button className={styles.option} onMouseEnter={start} onClick={enter} $url={"/gow.png"}>
                 <p>God of War</p> 
             </Button>
-            </div>
+            </div> */}
             </Slider>
       </div>
+      
       </div>
     </Main>
   );
