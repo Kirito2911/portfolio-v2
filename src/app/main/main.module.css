@@ -32,7 +32,7 @@
 }
 
 .list {
-  /* width: 70.7%; */
+  height: 11rem;
   background-color: transparent;
   display: block;
   padding: 0px 20px;
@@ -96,4 +96,31 @@
   opacity: 80%;
   border: none;
   height: 100vh;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  padding: 0px 150px;
+  padding-top: 60px;
+  flex-direction: column;
+
+  .info {
+    z-index: 10;
+    .title {
+      font-size: 30px;
+    }
+    .text {
+      margin-top: 30px;
+      font-size: 15px;
+      font-weight: 400;
+    }
+  }
+
+  .social {
+    z-index: 10;
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-between;
+  }
 }

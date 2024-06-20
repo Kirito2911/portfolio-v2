@@ -12,6 +12,8 @@ export default function Main() {
   const [time, setTime] = useState("");
   const [selected, setSelected] = useState("Games");
   const [hover, setHover] = useState("");
+  const [text, setText] = useState("");
+  const [comment, setComment] = useState("");
 
   // eslint-disable-next-line
   const createClock = setInterval(function changeHour() {
@@ -132,6 +134,27 @@ export default function Main() {
     border-radius: 50px;
   `;
 
+  const SocialButton = styled.a<{ $url?: string }>`
+    width: 280px;
+    height: 120px;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-image: url("${(props) =>
+      (process.env.PUBLIC_URL || "") + props.$url}");
+
+    .subtitle {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: end;
+      padding: 6px 6px;
+      font-size: 13px;
+      background: linear-gradient(5deg, black 1%, transparent 50%);
+      align-itens: center;
+    }
+  `;
+
   return (
     <Main $url={hover == "" ? "/1068673.gif" : hover}>
       <div className={styles.filter}></div>
@@ -145,6 +168,26 @@ export default function Main() {
           <link
             rel="preload"
             href={(process.env.PUBLIC_URL || "") + "/moveback.png"}
+            as="image"
+          ></link>
+          <link
+            rel="preload"
+            href={(process.env.PUBLIC_URL || "") + "/celolback.png"}
+            as="image"
+          ></link>
+          <link
+            rel="preload"
+            href={(process.env.PUBLIC_URL || "") + "/cvback.png"}
+            as="image"
+          ></link>
+          <link
+            rel="preload"
+            href={(process.env.PUBLIC_URL || "") + "/podback.png"}
+            as="image"
+          ></link>
+          <link
+            rel="preload"
+            href={(process.env.PUBLIC_URL || "") + "/letback.png"}
             as="image"
           ></link>
           <div className={styles.headerCategory}>
@@ -310,6 +353,68 @@ export default function Main() {
           </Slider>
         </div>
       </div>
+
+      {hover == "" ? (
+        <div className={styles.content}>
+          <div className={styles.info}>
+            <p className={styles.title}>Sobre mim</p>
+
+            <h1 className={styles.text}>
+              Meu nome é Jean, tenho 20 anos e atualmente estou cursando Análise
+              e Desenvolvimento de Sistemas. No tempo livre eu gosto de assistir
+              animes ou jogar algum jogo. Tenho um pouco de conhecimento em C,
+              Java, Python, Javascript, React, Angular, Flask, Django, Git e
+              algumas outras coisas. Aqui estão alguns projetos acompanhados dos
+              meus jogos favoritos.
+            </h1>
+          </div>
+          <div className={styles.social}>
+            <SocialButton
+              href="https://www.facebook.com/profile.php?id=100006825931566"
+              $url={"/facebook.png"}
+              target="_blank"
+            >
+              <div className="subtitle">Visitar meu Facebook</div>
+            </SocialButton>
+            <SocialButton
+              href="https://github.com/Kirito2911"
+              $url={"/github.png"}
+              target="_blank"
+            >
+              {" "}
+              <div className="subtitle">Visitar meu Github</div>
+            </SocialButton>
+            <SocialButton
+              href="mailto:jean_carlo291@hotmail.com"
+              $url={"/mail.png"}
+              target="_blank"
+            >
+              <div className="subtitle">Enviar e-mail</div>
+            </SocialButton>
+            <SocialButton
+              href="https://www.linkedin.com/in/jean-brito-930419195/"
+              $url={"/linkedin.png"}
+              target="_blank"
+            >
+              <div className="subtitle">Visitar meu Linkedin</div>
+            </SocialButton>
+          </div>
+        </div>
+      ) : (
+        <div className={styles.content}>
+          <div className={styles.info}>
+            <p className={styles.title}>{comment}</p>
+
+            <h1 className={styles.text}>{text}</h1>
+          </div>
+          {/* <div className={styles.social}>
+                <SocialButton href="https://www.facebook.com/profile.php?id=100006825931566" $url={"/facebook.png"} target="_blank"><div className="subtitle">Visitar meu Facebook</div></SocialButton>
+                <SocialButton href="https://github.com/Kirito2911" $url={"/github.png"} target="_blank"> <div className="subtitle">Visitar meu Github</div></SocialButton>
+                <SocialButton href="mailto:jean_carlo291@hotmail.com" $url={"/mail.png"} target="_blank"><div className="subtitle">Enviar e-mail</div></SocialButton>
+                <SocialButton href="https://www.linkedin.com/in/jean-brito-930419195/" $url={"/linkedin.png"} target="_blank"><div className="subtitle">Visitar meu Linkedin</div></SocialButton>
+        </div> */}
+        </div>
+      )}
     </Main>
   );
 }
