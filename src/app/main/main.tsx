@@ -227,15 +227,90 @@ export default function Main() {
 
         <div className={styles.list}>
           <Slider className={styles.slider} {...settings}>
+            <a href="https://letmeask2911.web.app/">
+              <div className={styles.divop}>
+                <Button
+                  className={styles.option}
+                  onMouseLeave={() => {
+                    setHover("");
+                    setComment("");
+                    setText("");
+                  }}
+                  onMouseEnter={() => {
+                    setHover("/letback.png");
+                    setComment("Descrição");
+                    setText(
+                      "Projeto Front-End desenvolvido na NLW#6 da Rocketseat, na trilha de ReactJS e consiste em uma aplicação para criação de salas de perguntas e respostas. ",
+                    );
+                  }}
+                  onClick={enter}
+                  $url={"/let.png"}
+                >
+                  <p>Letmeask</p>
+                </Button>
+              </div>
+            </a>
+            <a href="https://podcastr-flame.vercel.app/">
+              <div className={styles.divop}>
+                <Button
+                  className={styles.option}
+                  onMouseLeave={() => {
+                    setHover("");
+                    setComment("");
+                    setText("");
+                  }}
+                  onMouseEnter={() => {
+                    setHover("/podback.png");
+                    setComment("Descrição");
+                    setText(
+                      "Projeto Front-End desenvolvido na NLW#5 da Rocketseat, na trilha de ReactJS e consiste em uma aplicação de reprodução de episódios em áudio de podcast.",
+                    );
+                  }}
+                  onClick={enter}
+                  $url={"/podcastr.png"}
+                >
+                  <p>Podcastr</p>
+                </Button>
+              </div>
+            </a>
+            <a href="https://kiriflix.vercel.app/">
+              <div className={styles.divop}>
+                <Button
+                  className={styles.option}
+                  onMouseLeave={() => {
+                    setHover("");
+                    setComment("");
+                    setText("");
+                  }}
+                  onMouseEnter={() => {
+                    setHover("/kiriflixback.png");
+                    setComment("Descrição");
+                    setText(
+                      "Projeto Front-End desenvolvido durante a Imersão React da Alura e consiste em um clone da interface da Netflix, só que agregando links de videos do YouTube.",
+                    );
+                  }}
+                  onClick={enter}
+                  $url={"/kiriflix.png"}
+                >
+                  <p>Kiriflix</p>
+                </Button>
+              </div>
+            </a>
             <a href="https://moveitt-kirito2911.vercel.app/">
               <div className={styles.divop}>
                 <Button
                   className={styles.option}
                   onMouseLeave={() => {
                     setHover("");
+                    setComment("");
+                    setText("");
                   }}
                   onMouseEnter={() => {
                     setHover("/moveback.png");
+                    setComment("Descrição");
+                    setText(
+                      "Projeto Front-End desenvolvido na NLW#4 da Rocketseat, na trilha de ReactJS e consiste em uma aplicação que tem como objetivo aplicar a técnica de Pomodoro para estimular a realização de exercícios físicos para pessoas que passam muito tempo na frente do computador.",
+                    );
                   }}
                   onClick={enter}
                   $url={"/moveit.png"}
@@ -251,65 +326,20 @@ export default function Main() {
                   className={styles.option}
                   onMouseLeave={() => {
                     setHover("");
+                    setComment("");
+                    setText("");
                   }}
                   onMouseEnter={() => {
                     setHover("/celolback.png");
+                    setComment("Descrição");
+                    setText(
+                      "Projeto Front-End desenvolvido no meu ensino médio com o objetivo de promover e fornecer atualizações sobre um campeonato de E-sports realizado em 2019.",
+                    );
                   }}
                   onClick={enter}
                   $url={"/celol.png"}
                 >
                   <p>Celol</p>
-                </Button>
-              </div>
-            </a>
-            <a href="https://kiriflix.vercel.app/">
-              <div className={styles.divop}>
-                <Button
-                  className={styles.option}
-                  onMouseLeave={() => {
-                    setHover("");
-                  }}
-                  onMouseEnter={() => {
-                    setHover("/kiriflixback.png");
-                  }}
-                  onClick={enter}
-                  $url={"/kiriflix.png"}
-                >
-                  <p>Kiriflix</p>
-                </Button>
-              </div>
-            </a>
-            <a href="https://podcastr-flame.vercel.app/">
-              <div className={styles.divop}>
-                <Button
-                  className={styles.option}
-                  onMouseLeave={() => {
-                    setHover("");
-                  }}
-                  onMouseEnter={() => {
-                    setHover("/podback.png");
-                  }}
-                  onClick={enter}
-                  $url={"/podcastr.png"}
-                >
-                  <p>Podcastr</p>
-                </Button>
-              </div>
-            </a>
-            <a href="https://letmeask2911.web.app/">
-              <div className={styles.divop}>
-                <Button
-                  className={styles.option}
-                  onMouseLeave={() => {
-                    setHover("");
-                  }}
-                  onMouseEnter={() => {
-                    setHover("/letback.png");
-                  }}
-                  onClick={enter}
-                  $url={"/let.png"}
-                >
-                  <p>Letmeask</p>
                 </Button>
               </div>
             </a>
@@ -319,9 +349,13 @@ export default function Main() {
                   className={styles.option}
                   onMouseLeave={() => {
                     setHover("");
+                    setComment("");
+                    setText("");
                   }}
                   onMouseEnter={() => {
                     setHover("/cvback.png");
+                    setComment("Descrição");
+                    setText("Meu currículo 100% atualizado. ");
                   }}
                   onClick={enter}
                   $url={"/cv.png"}
@@ -333,13 +367,15 @@ export default function Main() {
             <div className={styles.divop}>
               <Button
                 className={styles.option}
+                onMouseLeave={() => {
+                  setHover("");
+                  setComment("");
+                  setText("");
+                }}
                 onMouseEnter={() => {
                   setHover("/wallff7.jpg");
                 }}
                 onClick={enter}
-                onMouseLeave={() => {
-                  setHover("");
-                }}
                 $url={"/final.png"}
               >
                 <p>Final Fantasy 7 Remake</p>
@@ -360,12 +396,13 @@ export default function Main() {
             <p className={styles.title}>Sobre mim</p>
 
             <h1 className={styles.text}>
-              Meu nome é Jean, tenho 20 anos e atualmente estou cursando Análise
+              Meu nome é Jean, tenho 21 anos e atualmente estou cursando Análise
               e Desenvolvimento de Sistemas. No tempo livre eu gosto de assistir
-              animes ou jogar algum jogo. Tenho um pouco de conhecimento em C,
-              Java, Python, Javascript, React, Angular, Flask, Django, Git e
-              algumas outras coisas. Aqui estão alguns projetos acompanhados dos
-              meus jogos favoritos.
+              animes, jogar e ultimamente comecei um hobby novo que é cosplay.
+              Tenho conhecimento nas linguagens C, Java, Python e Javascript.
+              Também possuo conhecimento nos frameworks React, Angular, Flask e
+              Django. Aqui estão alguns projetos que desevolvi ao longo dos anos
+              durante meus estudos.
             </h1>
           </div>
           <div className={styles.social}>
