@@ -199,9 +199,9 @@ export default function Main() {
                 setSelected("Games");
               }}
             >
-              Games
+              Projetos
             </div>
-            <div
+            {/* <div
               className={
                 selected !== "Media" ? styles.unselected : styles.selected
               }
@@ -210,7 +210,7 @@ export default function Main() {
               }}
             >
               Media
-            </div>
+            </div> */}
           </div>
 
           <div className={styles.headerSettings}>
@@ -227,6 +227,29 @@ export default function Main() {
 
         <div className={styles.list}>
           <Slider className={styles.slider} {...settings}>
+            <a href="https://kirito2911.itch.io/azombie">
+              <div className={styles.divop}>
+                <Button
+                  className={styles.option}
+                  onMouseLeave={() => {
+                    setHover("");
+                    setComment("");
+                    setText("");
+                  }}
+                  onMouseEnter={() => {
+                    setHover("/azombiehover.png");
+                    setComment("Descrição");
+                    setText(
+                      'Jogo desenvolvido no curso "Unity parte 1: criação de um jogo de sobrevivência à zumbis para Web" da alura usando a ferramenta Unity. Consiste em um jogo 3D de tiro na temática de Zumbi com visão Top-Down e mecânicas simples, visando exercitar os princípios básicos do desenvolvimento de jogos.',
+                    );
+                  }}
+                  onClick={enter}
+                  $url={"/azombie.png"}
+                >
+                  <p>Azombie</p>
+                </Button>
+              </div>
+            </a>
             <a href="https://letmeask2911.web.app/">
               <div className={styles.divop}>
                 <Button
@@ -364,7 +387,7 @@ export default function Main() {
                 </Button>
               </div>
             </a>
-            <div className={styles.divop}>
+            {/* <div className={styles.divop}>
               <Button
                 className={styles.option}
                 onMouseLeave={() => {
@@ -380,7 +403,7 @@ export default function Main() {
               >
                 <p>Final Fantasy 7 Remake</p>
               </Button>
-            </div>
+            </div> */}
             {/* <div className={styles.divop}>
             <Button className={styles.option} onMouseEnter={start} onClick={enter} $url={"/gow.png"}>
                 <p>God of War</p> 
